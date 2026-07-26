@@ -25,7 +25,7 @@ except ImportError:
 # --------------------------------------------------------------------------
 # PAGE CONFIG & CSS
 # --------------------------------------------------------------------------
-st.set_page_config(page_title="Trade Lab", layout="wide", page_icon="🧪", initial_sidebar_state="collapsed")
+st.set_page_config(page_title="Trading Lab", layout="wide", page_icon="🧪", initial_sidebar_state="collapsed")
 
 def inject_green_gradient_css():
     st.markdown("""
