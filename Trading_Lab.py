@@ -1,7 +1,7 @@
 """
-Trade Lab
+Trading Lab
 A Streamlit dashboard for stock investigation using yfinance data and TA-Lib indicators,
-styled with the Alpaca Green Gradient Theme, built-in Streamlit Caching, Plotly visually integrated,
+styled with the Green Gradient Theme, built-in Streamlit Caching, Plotly visually integrated,
 and Dynamic Indicator Parameters.
 """
 
@@ -78,7 +78,7 @@ def inject_green_gradient_css():
     p, label, span, div { font-family: var(--sans) !important; }
 
     /* ── topbar ── */
-    .alpaca-topbar {
+    .theme-topbar {
         background: linear-gradient(135deg, #34D399 0%, #10B981 60%, #059669 100%);
         padding: 16px 24px 18px; border-radius: 16px; margin: 0 0 1.4rem 0;
         display: flex; align-items: center; justify-content: space-between;
@@ -86,9 +86,9 @@ def inject_green_gradient_css():
         flex-wrap: wrap;
         gap: 12px;
     }
-    .alpaca-topbar-title { font-size: 20px; font-weight: 800; color: #fff; letter-spacing: -.3px; }
-    .alpaca-topbar-sub { font-size: 11px; color: rgba(255,255,255,.9); font-weight: 500; letter-spacing: .6px; margin-top: 2px; }
-    .alpaca-live-dot {
+    .theme-topbar-title { font-size: 20px; font-weight: 800; color: #fff; letter-spacing: -.3px; }
+    .theme-topbar-sub { font-size: 11px; color: rgba(255,255,255,.9); font-weight: 500; letter-spacing: .6px; margin-top: 2px; }
+    .theme-live-dot {
         display: inline-block; width: 8px; height: 8px; background: #34D399;
         border-radius: 50%; margin-right: 6px; box-shadow: 0 0 0 2px rgba(255,255,255,.4);
         animation: pulse 1.8s infinite;
@@ -97,7 +97,7 @@ def inject_green_gradient_css():
         0%,100% { box-shadow: 0 0 0 2px rgba(255,255,255,.4); }
         50% { box-shadow: 0 0 0 5px rgba(255,255,255,.15); }
     }
-    .alpaca-topbar-badge {
+    .theme-topbar-badge {
         background: rgba(255,255,255,.2); border: 1px solid rgba(255,255,255,.3);
         color: #fff; font-size: 11px; font-weight: 700; padding: 4px 12px;
         border-radius: 20px; letter-spacing: .5px;
@@ -105,11 +105,11 @@ def inject_green_gradient_css():
     }
 
     /* ── section headers ── */
-    .alpaca-section-header { background: var(--surface); border: 1px solid var(--border); border-top: 3px solid var(--p); padding: 10px 16px; border-radius: 12px 12px 0 0; margin-bottom: -1px; }
-    .alpaca-section-header h3 { font-size: 13px !important; font-weight: 700 !important; color: var(--p) !important; text-transform: uppercase; letter-spacing: .8px; margin: 0 !important; }
+    .theme-section-header { background: var(--surface); border: 1px solid var(--border); border-top: 3px solid var(--p); padding: 10px 16px; border-radius: 12px 12px 0 0; margin-bottom: -1px; }
+    .theme-section-header h3 { font-size: 13px !important; font-weight: 700 !important; color: var(--p) !important; text-transform: uppercase; letter-spacing: .8px; margin: 0 !important; }
     
-    .alpaca-config-header { background: var(--p-xlight); border-left: 3px solid var(--p); padding: 8px 12px; border-radius: 8px; margin: 14px 0 10px; }
-    .alpaca-config-header h3 { font-size: 11px !important; font-weight: 700 !important; color: var(--p) !important; text-transform: uppercase; letter-spacing: .9px; margin: 0 !important; }
+    .theme-config-header { background: var(--p-xlight); border-left: 3px solid var(--p); padding: 8px 12px; border-radius: 8px; margin: 14px 0 10px; }
+    .theme-config-header h3 { font-size: 11px !important; font-weight: 700 !important; color: var(--p) !important; text-transform: uppercase; letter-spacing: .9px; margin: 0 !important; }
 
     /* ── inputs ── */
     div[data-baseweb="input"] input, .stNumberInput input {
@@ -198,15 +198,15 @@ def inject_green_gradient_css():
             margin: 0.5rem auto !important;
             padding: 1rem 1rem 1.5rem !important;
         }
-        .alpaca-topbar {
+        .theme-topbar {
             flex-direction: column !important;
             align-items: flex-start !important;
             padding: 14px !important;
         }
-        .alpaca-topbar-title {
+        .theme-topbar-title {
             font-size: 17px !important;
         }
-        .alpaca-topbar-badge {
+        .theme-topbar-badge {
             align-self: flex-start !important;
         }
         .metric-value {
@@ -356,12 +356,12 @@ def main():
     init_state()
 
     st.markdown("""
-    <div class="alpaca-topbar">
+    <div class="theme-topbar">
       <div>
-        <div class="alpaca-topbar-title">🧪 Trading Lab</div>
-        <div class="alpaca-topbar-sub"><span class="alpaca-live-dot"></span>Extract structured stock data, overlay indicators, and stream to Google Sheets</div>
+        <div class="theme-topbar-title">🧪 Trading Lab</div>
+        <div class="theme-topbar-sub"><span class="theme-live-dot"></span>Extract structured stock data, overlay indicators, and stream to Google Sheets</div>
       </div>
-      <div class="alpaca-topbar-badge">DATA PIPELINE</div>
+      <div class="theme-topbar-badge">DATA PIPELINE</div>
     </div>
     """, unsafe_allow_html=True)
 
@@ -371,7 +371,7 @@ def main():
     # TAB 1 — CONFIGURATION
     # ------------------------------------------------------------------
     with tab1:
-        st.markdown('<div class="alpaca-section-header"><h3>🎯 Target Asset Parameters</h3></div>', unsafe_allow_html=True)
+        st.markdown('<div class="theme-section-header"><h3>🎯 Target Asset Parameters</h3></div>', unsafe_allow_html=True)
         st.markdown("<br>", unsafe_allow_html=True)
         
         col1, col2 = st.columns(2)
@@ -414,7 +414,7 @@ def main():
     # TAB 2 — INDICATORS
     # ------------------------------------------------------------------
     with tab2:
-        st.markdown('<div class="alpaca-section-header"><h3>⚙️ Technical Analysis Clues</h3></div>', unsafe_allow_html=True)
+        st.markdown('<div class="theme-section-header"><h3>⚙️ Technical Analysis Clues</h3></div>', unsafe_allow_html=True)
         st.markdown("<br>", unsafe_allow_html=True)
         
         st.warning(
@@ -487,7 +487,7 @@ def main():
     # TAB 3 — DATA TABLE
     # ------------------------------------------------------------------
     with tab3:
-        st.markdown('<div class="alpaca-section-header"><h3>📊 Execution Matrix</h3></div>', unsafe_allow_html=True)
+        st.markdown('<div class="theme-section-header"><h3>📊 Execution Matrix</h3></div>', unsafe_allow_html=True)
         st.markdown("<br>", unsafe_allow_html=True)
         
         run_search = st.button("🚀 Harvest Enriched Data", use_container_width=True)
@@ -549,7 +549,7 @@ def main():
             colA, colB = st.columns(2)
             
             with colA:
-                st.markdown('<div class="alpaca-config-header"><h3>📥 Local Export</h3></div>', unsafe_allow_html=True)
+                st.markdown('<div class="theme-config-header"><h3>📥 Local Export</h3></div>', unsafe_allow_html=True)
                 csv_bytes = final_df.to_csv().encode("utf-8")
                 st.download_button(
                     "Export Compiled Dataset (CSV)",
@@ -560,7 +560,7 @@ def main():
                 )
                 
             with colB:
-                st.markdown('<div class="alpaca-config-header"><h3>🔗 Cloud Sync</h3></div>', unsafe_allow_html=True)
+                st.markdown('<div class="theme-config-header"><h3>🔗 Cloud Sync</h3></div>', unsafe_allow_html=True)
                 gsheet_url = st.text_input(
                     "Google Apps Script URL", 
                     value=st.session_state.get("gsheet_url", ""), 
@@ -578,7 +578,7 @@ def main():
     # TAB 4 — INTERACTIVE CHART (PLOTLY)
     # ------------------------------------------------------------------
     with tab4:
-        st.markdown('<div class="alpaca-section-header"><h3>📈 Interactive Price Chart</h3></div>', unsafe_allow_html=True)
+        st.markdown('<div class="theme-section-header"><h3>📈 Interactive Price Chart</h3></div>', unsafe_allow_html=True)
         st.markdown("<br>", unsafe_allow_html=True)
         
         final_df_chart = st.session_state.get("fetched_df")
